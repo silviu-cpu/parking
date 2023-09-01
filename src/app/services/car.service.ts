@@ -5,8 +5,8 @@ import { Car } from '../models/car.model'
   providedIn: 'root'
 })
 export class CarService {
-  private parkingCapacity = 10;
-  private parkingSlots: Car[] = [];
+  private parkingCapacity = 10
+  private parkingSlots: Car[] = []
 
   constructor() {}
 
@@ -56,7 +56,7 @@ export class CarService {
         return null
       }
   
-      const exitTime = new Date(); // Get the current time as the exit time
+      const exitTime = new Date() // Get the current time as the exit time
       exitedVehicle.exitTime = exitTime
   
       // Calculate the parking duration in milliseconds
@@ -72,13 +72,13 @@ export class CarService {
         parkingFee += (durationHours - 1) * 5 // Additional fee for each hour
       }
   
-      exitedVehicle.parkingFee = parkingFee;
+      exitedVehicle.parkingFee = parkingFee
       exitedVehicle.isParked = false // Set isParked to false for exited cars
      
-      return exitedVehicle; // Return the exited vehicle with updated information
+      return exitedVehicle // Return the exited vehicle with updated information
     }
   
-    return null; // Return null if the vehicle is not found
+    return null // Return null if the vehicle is not found
   }
   
   
