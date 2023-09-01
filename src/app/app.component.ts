@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
     this.cdr.detectChanges()
   }
 
-  // Method to update available parking slots
   updateAvailableParkingSlots(): void {
     this.availableParkingSlots = this.carService.getAvailableParkingSpaces()
   }
@@ -70,9 +69,6 @@ export class AppComponent implements OnInit {
     }
   }
   
-  
-
-  
   exitVehicle(licensePlate: string): void {
     const exitedVehicle = this.carService.exitVehicle(licensePlate)
     if (exitedVehicle) {
@@ -93,4 +89,11 @@ export class AppComponent implements OnInit {
     this.showMessage = false
     this.message = ''
   }
+
+  isFutureDate(date: string): boolean {
+    const currentDate = new Date()
+    const selectedDate = new Date(date)
+    return selectedDate > currentDate
+  }
+  
 }

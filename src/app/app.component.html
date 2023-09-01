@@ -10,9 +10,9 @@
       </div>
       <div class="form-group">
         <label for="entryTime">Entry Time:</label>
-        <input type="datetime-local" class="form-control" id="entryTime" [(ngModel)]="entryTimeInput" />
+        <input type="datetime-local" class="form-control" id="entryTime" [(ngModel)]="entryTimeInput"  />
       </div>
-      <button class="btn btn-primary" (click)="addVehicle()">Add Vehicle</button>
+      <button class="btn btn-primary" (click)="addVehicle()" [disabled]="isFutureDate(entryTimeInput)">Add Vehicle</button>
 
       <!-- Message Div for License Plate Input -->
       <div *ngIf="showMessage" class="message">
