@@ -74,8 +74,7 @@ export class CarService {
   
       exitedVehicle.parkingFee = parkingFee;
       exitedVehicle.isParked = false; // Set isParked to false for exited cars
-      // Decrement the parkingSlots length because the car has exited
-    this.parkingSlots.splice(exitedVehicleIndex, 1);
+     
       return exitedVehicle; // Return the exited vehicle with updated information
     }
   
