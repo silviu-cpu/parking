@@ -53,7 +53,7 @@
           License Plate: {{ car.licensePlate }}<br>
           Entry Time: {{ car.entryTime | date: 'medium' }}<br>
           Exit Time: {{ car.exitTime | date: 'medium' }}
-          <span *ngIf="!car.isParked">Parking Fee: {{ car.parkingFee }}</span>
+          <div *ngIf="!car.isParked">Parking Fee: {{ car.parkingFee }}</div>
         </li>
       </ul>
     </div>
