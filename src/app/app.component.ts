@@ -8,32 +8,32 @@ import { Car } from './models/car.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  license: string = '';
-  entryTimeInput: string = '';
-  parkedVehicles: Array<Car> = [];
-  availableParkingSlots: number = 0;
-  showMessage: boolean = false;
-  message: string = '';
-  exitedVehicles: Car[] = [];
+  license: string = ''
+  entryTimeInput: string = ''
+  parkedVehicles: Array<Car> = []
+  availableParkingSlots: number = 0
+  showMessage: boolean = false
+  message: string = ''
+  exitedVehicles: Car[] = []
 
   constructor(private carService: CarService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.updateCarLists();
-    this.parkedVehicles = this.carService.getVehicleList();
-    this.availableParkingSlots = this.carService.getAvailableParkingSpaces();
+    this.updateCarLists()
+    this.parkedVehicles = this.carService.getVehicleList()
+    this.availableParkingSlots = this.carService.getAvailableParkingSpaces()
   }
 
   updateCarLists(): void {
-    const allCars = this.carService.getVehicleList();
-    this.parkedVehicles = allCars.filter((car) => car.isParked);
-    this.exitedVehicles = allCars.filter((car) => !car.isParked);
+    const allCars = this.carService.getVehicleList()
+    this.parkedVehicles = allCars.filter((car) => car.isParked)
+    this.exitedVehicles = allCars.filter((car) => !car.isParked)
     this.cdr.detectChanges()
   }
 
   // Method to update available parking slots
   updateAvailableParkingSlots(): void {
-    this.availableParkingSlots = this.carService.getAvailableParkingSpaces();
+    this.availableParkingSlots = this.carService.getAvailableParkingSpaces()
   }
 
   addVehicle(): void {
